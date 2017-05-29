@@ -1,1 +1,33 @@
-
+#include<stdio.h>
+#include<math.h>
+void mian()
+{
+  int k,m,,x,b[10]={0},n=0;
+  long t1,t2,y,d,f,t=1;
+  printf("请输入从1到9选出m个"）;
+  printf("组成没有重复的的平方数\n");
+  printf("请输入数字m");
+  scanf("%d",&m);
+  for(y=1;y<=m-1;y++)
+  t=t*10;                                //通过累乘算的m位数
+  t1=（long)sqrt(t);
+  t2= (long)sqrt(10*t);
+  for（y=t1+1;y<=t2;y++)
+  {
+    f=y*y;
+    d=f;                               //d就是你要求的那个数 
+    for(x=0,i=1;i<=m;i++)
+    {
+     k=f%10;
+     f=f/10;
+     if(k==0||(++b[k]>1))
+     { x=1;break;}                    //把含数字0的和重复数字则记为x=1
+     if(x==0)
+     {n++;
+     printf("%1d=%2d^2",d,y);
+     if(n%3==0)
+     printf("\n");
+     }
+    } 
+   printf("\n共有%d个.\n",n);
+ }  
